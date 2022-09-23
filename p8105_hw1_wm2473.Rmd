@@ -1,0 +1,49 @@
+---
+title: "P8105_hw1_wm2473"
+output: github_document
+date: "2022-09-23"
+---
+#install.packages("palmerpenguins")
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+# Problem 1
+```{r}
+library (tidyverse)
+# the data in this dataset, including names / values of important variables:
+# species, Island, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex, year
+# the size of the dataset:
+nrow(penguins)
+ncol(penguins)
+# 344 rows, 8 columns
+# the mean flipper length:
+mean((penguins$flipper_length_mm),na.rm = TRUE)
+# 200.9152
+```
+#Graph:
+```{r}
+library(ggplot2)
+x = (penguins$bill_length_mm)
+y = (penguins$flipper_length_mm)
+ggplot(penguins, aes(x=x, y=y, color = species)) + geom_point()
+
+ggsave("species_plot.pdf")
+```
+# Problem 2
+```{r}
+library(tidyverse)
+plot_df = tibble(
+  a = rnorm(10), 
+  b = a>0, 
+  c ="wetuinvgfj", 
+  d =factor(c("High", "High", "High", "medium", "medium","medium", "low", "low", "low", "low"))
+         )
+mean(plot_df$a)
+mean(plot_df$b)
+pull(plot_df,d)
+#mean c&d can't run because they are not number can't calculate the mean of them
+```
+
+
+
